@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.providers.great_expectations.operators.great_expectations import GreatExpectationsOperator
+from great_expectations_provider.operators.great_expectations import GreatExpectationsOperator
 from datetime import datetime
 
 # Define default arguments for the DAG
