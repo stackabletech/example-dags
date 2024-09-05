@@ -1,51 +1,30 @@
 from airflow import DAG
-from airflow.operators.python import PythonOperator, BranchPythonOperator
-from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
 from datetime import datetime
-from random import randint
 
-def _choose_best_model(ti):
-    accuracies = ti.xcom_pull(task_ids=[
-        'training_model_A',
-        'training_model_B',
-        'training_model_C'
-    ])
-    if max(accuracies) > 8:
-        return 'is_accurate'
-    return 'is_inaccurate'
+# Define a simple function to print "Hello, Airflow!"
+def print_hello():
+    print("Hello, Airflow!")
 
-def _training_model(model):
-    print(model)
-    return randint(1, 10)
+# Default arguments for the DAG
+default_args = {
+    'owner': 'airflow',
+    'start_date': datetime(2024, 9, 1),  # set a start date for the DAG
+    'retries': 1,  # number of retries in case of failure
+}
 
-with DAG("my_dag",
-         start_date=datetime(2023, 1 ,1),
-         schedule_interval='@daily',
-         catchup=False):
+# Instantiate the DAG
+with DAG(
+        'hello_airflow',  # Name of the DAG
+        default_args=default_args,
+        schedule_interval='@daily',  # Run this DAG once a day
+        catchup=False,  # Don't run for previous dates if start_date is in the past
+) as dag:
 
-    training_model_tasks = [
-        PythonOperator(
-            task_id=f"training_model_{model_id}",
-            python_callable=_training_model,
-            op_kwargs={
-                "model": model_id
-            }
-        ) for model_id in ['A', 'B', 'C']
-    ]
-
-    choose_best_model = BranchPythonOperator(
-        task_id="choose_best_model",
-        python_callable=_choose_best_model
+    # Define a task using PythonOperator
+    hello_task = PythonOperator(
+        task_id='print_hello',  # Unique ID for the task
+        python_callable=print_hello,  # The function to be called by this task
     )
 
-    accurate = BashOperator(
-        task_id="is_accurate",
-        bash_command="echo 'accurate'"
-    )
-
-    inaccurate = BashOperator(
-        task_id="is_inaccurate",
-        bash_command=" echo 'inaccurate'"
-    )
-
-    training_model_tasks >> choose_best_model >> [is_accurate, is_inaccurate]
+# The DAG will automatically include all tasks defined within the "with" block.
