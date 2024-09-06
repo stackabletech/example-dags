@@ -90,7 +90,7 @@ data_docs_sites:
 
 anonymous_usage_statistics:
   data_context_id: 132019bd-eb71-467a-89ab-ba1404f8e74e
-  enabled: true
+  enabled: false
 notebooks:
 include_rendered_content:
   globally: false
