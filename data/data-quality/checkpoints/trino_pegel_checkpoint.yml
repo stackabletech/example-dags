@@ -16,15 +16,15 @@ validations:
 #      data_asset_name: gdifr.abi_gliederung_stadtbereiche
 #    expectation_suite_name: trino_gdifr_abi_gliederung_stadt_bereiche
 action_list:
-  #- name: store_validation_result
-  #  action:
-  #    class_name: StoreValidationResultAction
-  #- name: store_evaluation_params
-  #  action:
-  #    class_name: StoreEvaluationParametersAction
-  #- name: update_data_docs
-  #  action:
-  #    class_name: UpdateDataDocsAction
+  - name: store_validation_result
+    action:
+      class_name: StoreValidationResultAction
+  - name: store_evaluation_params
+    action:
+      class_name: StoreEvaluationParametersAction
+  - name: update_data_docs
+    action:
+      class_name: UpdateDataDocsAction
 #  - name: datahub_action
 #    action:
 #      module_name: datahub.integrations.great_expectations.action
