@@ -27,7 +27,7 @@ with DAG(
     ge_data_context_root_dir_with_checkpoint_name_pass = GreatExpectationsOperator(
         task_id="ge_data_context_root_dir_with_checkpoint_name_pass",
         data_context_root_dir=ge_root_dir,
-        checkpoint_name="trino_pegel_checkpoint.yml",
+        checkpoint_name="trino_pegel_checkpoint",
     )
 
 
