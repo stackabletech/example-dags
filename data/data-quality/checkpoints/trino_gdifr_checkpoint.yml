@@ -6,15 +6,15 @@ class_name: Checkpoint
 run_name_template: "%Y%m%d_%H:%M:%S_trino_gdifr"
 validations:
   - batch_request:
-      datasource_name: trino_gdifr
+      datasource_name: trino
       data_connector_name: default_inferred_data_connector_name
-      data_asset_name: gdifr.abi_gliederung_stadtbezirke
-    expectation_suite_name: trino_gdifr_abi_gliederung_stadt_bezirke
-  - batch_request:
-      datasource_name: trino_gdifr
-      data_connector_name: default_inferred_data_connector_name
-      data_asset_name: gdifr.abi_gliederung_stadtbereiche
-    expectation_suite_name: trino_gdifr_abi_gliederung_stadt_bereiche   
+      data_asset_name: pegel.measurements
+    expectation_suite_name: trino_pegel_measurements
+#  - batch_request:
+#      datasource_name: trino
+#      data_connector_name: default_inferred_data_connector_name
+#      data_asset_name: gdifr.abi_gliederung_stadtbereiche
+#    expectation_suite_name: trino_gdifr_abi_gliederung_stadt_bereiche
 action_list:
   #- name: store_validation_result
   #  action:
@@ -25,14 +25,14 @@ action_list:
   #- name: update_data_docs
   #  action:
   #    class_name: UpdateDataDocsAction
-  - name: datahub_action
-    action:
-      module_name: datahub.integrations.great_expectations.action
-      class_name: DataHubValidationAction
-      server_url: ${DATAHUB_API_ENDPOINT}
-      token: ${DATAHUB_API_TOKEN}
-      parse_table_names_from_sql: true
-      convert_urns_to_lowercase: true
+#  - name: datahub_action
+#    action:
+#      module_name: datahub.integrations.great_expectations.action
+#      class_name: DataHubValidationAction
+#      server_url: ${DATAHUB_API_ENDPOINT}
+#      token: ${DATAHUB_API_TOKEN}
+#      parse_table_names_from_sql: true
+#      convert_urns_to_lowercase: true
 evaluation_parameters: {}
 runtime_configuration: {}
 profilers: []

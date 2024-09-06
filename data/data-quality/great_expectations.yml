@@ -8,13 +8,13 @@ config_version: 3.0
 datasources:
   # Does not work unfortunatly: "Cannot initialize datasource trino-gdifr, error: The given datasource could not be retrieved from the DataContext; please confirm that your configuration is accurate."
   #${TRINO_GDIFR}:
-  trino_gdifr:
+  trino:
     class_name: Datasource
     module_name: great_expectations.datasource
     execution_engine:
       class_name: SqlAlchemyExecutionEngine
       module_name: great_expectations.execution_engine
-      connection_string: trino://${TRINO_USER}:${TRINO_PASSWORD}@trino.datenraum-dev.freiburg.de:443/datenraum/gdifr?verify=false
+      connection_string: trino://superset:supersetsuperset@trino-coordinator-default:8443/lakehouse?verify=false
     data_connectors:
       default_runtime_data_connector_name:
         class_name: RuntimeDataConnector
