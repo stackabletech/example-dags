@@ -26,7 +26,7 @@ datasources:
         module_name: great_expectations.datasource.data_connector
         include_schema_name: true
 
-config_variables_file_path: uncommitted/config_variables.yml
+config_variables_file_path: config_variables.yml
 
 # The plugins_directory will be added to your python path for custom modules
 # used to override and extend Great Expectations.
@@ -40,6 +40,12 @@ stores:
 # Three stores are required: expectations, validations, and
 # evaluation_parameters, and must exist with a valid store entry. Additional
 # stores can be configured for uses such as data_docs, etc.
+  validations_postgres_store:
+    class_name: ValidationsStore
+    store_backend:
+      class_name: DatabaseStoreBackend
+      credentials: ${db_creds}
+
   expectations_store:
     class_name: ExpectationsStore
     store_backend:
@@ -69,7 +75,7 @@ stores:
       base_directory: profilers/
 
 expectations_store_name: expectations_store
-validations_store_name: validations_store
+validations_store_name: validations_postgres_store
 evaluation_parameter_store_name: evaluation_parameter_store
 checkpoint_store_name: checkpoint_store
 

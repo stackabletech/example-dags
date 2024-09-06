@@ -1,0 +1,7 @@
+db_creds:
+  drivername: postgresql
+  host: 'ge-postgresql'
+  port: '5432'
+  username: 'ge'
+  password: 'ge'
+  database: 'ge'
