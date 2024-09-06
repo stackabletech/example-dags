@@ -15,7 +15,7 @@ default_args = {
 base_path = Path(__file__).parents[2]
 data_dir = base_path / "data" / "data-quality"
 
-ge_root_dir = str(base_path)
+ge_root_dir = str(data_dir)
 
 logging.info(ge_root_dir)
 with DAG(
