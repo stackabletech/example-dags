@@ -7,7 +7,7 @@
       "kwargs": {
         "column": "value",
         "min_value": -1000,
-        "max_value": 4000
+        "max_value": 100000
       },
       "meta": {}
     }
