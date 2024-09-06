@@ -28,6 +28,8 @@ with DAG(
         task_id="ge_data_context_root_dir_with_checkpoint_name_pass_conn",
         data_context_root_dir=ge_root_dir,
         conn_id="trino_default",
+        schema="pegel",
+        data_asset_name="measurements",
         expectation_suite_name="trino_pegel_measurements",
         return_json_dict = True,
     )
