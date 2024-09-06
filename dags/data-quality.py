@@ -12,7 +12,7 @@ default_args = {
     'retries': 1,  # Number of retries in case of task failure
 }
 
-base_path = Path(__file__).parents[2]
+base_path = Path(__file__).parents[1]
 data_dir = base_path / "data" / "data-quality"
 
 ge_root_dir = str(data_dir)
