@@ -27,7 +27,7 @@ with DAG(
     ge_data_context_root_dir_with_checkpoint_name_pass_conn = GreatExpectationsOperator(
         task_id="ge_data_context_root_dir_with_checkpoint_name_pass_conn",
         data_context_root_dir=ge_root_dir,
-        connection="trino-default",
+        connection="trino_default",
         expectation_suite_name="trino_pegel_measurements",
         return_json_dict = True,
     )
