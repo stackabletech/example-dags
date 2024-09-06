@@ -24,8 +24,8 @@ with DAG(
         catchup=False,
         schedule_interval=None,
 ) as dag:
-    ge_data_context_root_dir_with_checkpoint_name_pass = GreatExpectationsOperator(
-        task_id="ge_data_context_root_dir_with_checkpoint_name_pass",
+    ge_data_context_root_dir_with_checkpoint_name_pass_conn = GreatExpectationsOperator(
+        task_id="ge_data_context_root_dir_with_checkpoint_name_pass_conn",
         data_context_root_dir=ge_root_dir,
         connection="trino-default",
         expectation_suite_name="trino_pegel_measurements",
@@ -34,5 +34,5 @@ with DAG(
 
 
 chain(
-    ge_data_context_root_dir_with_checkpoint_name_pass,
+    ge_data_context_root_dir_with_checkpoint_name_pass_conn,
 )
