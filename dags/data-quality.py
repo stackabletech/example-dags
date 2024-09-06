@@ -3,6 +3,7 @@ from great_expectations_provider.operators.great_expectations import GreatExpect
 from datetime import datetime
 from pathlib import Path
 from airflow.models.baseoperator import chain
+import logging
 
 # Define default arguments for the DAG
 default_args = {
@@ -16,7 +17,7 @@ data_dir = base_path / "data" / "data-quality"
 
 ge_root_dir = str(base_path)
 
-print(ge_root_dir)
+logging.info(ge_root_dir)
 with DAG(
         dag_id="example_great_expectations_dag",
         start_date=datetime(2021, 12, 15),
