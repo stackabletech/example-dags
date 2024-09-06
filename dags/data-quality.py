@@ -16,6 +16,7 @@ data_dir = base_path / "data" / "data-quality"
 
 ge_root_dir = str(base_path)
 
+print(ge_root_dir)
 with DAG(
         dag_id="example_great_expectations_dag",
         start_date=datetime(2021, 12, 15),
