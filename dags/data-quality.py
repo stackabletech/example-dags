@@ -9,6 +9,13 @@ default_args = {
     'retries': 1,  # Number of retries in case of task failure
 }
 
+base_path = Path(__file__).parents[2]
+data_dir = base_path / "include" / "data"
+data_file = data_dir / "yellow_tripdata_sample_2019-01.csv"
+
+ge_root_dir = str(base_path / "include" / "great_expectations")
+
+
 # Instantiate the DAG
 with DAG(
         dag_id='great_expectations_example',  # Name of the DAG
