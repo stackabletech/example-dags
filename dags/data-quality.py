@@ -14,7 +14,7 @@ default_args = {
 base_path = Path(__file__).parents[2]
 data_dir = base_path / "data" / "data-quality"
 
-ge_root_dir = str(base_path / "checkpoints")
+ge_root_dir = str(base_path)
 
 with DAG(
         dag_id="example_great_expectations_dag",
