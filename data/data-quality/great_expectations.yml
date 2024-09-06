@@ -14,7 +14,7 @@ datasources:
     execution_engine:
       class_name: SqlAlchemyExecutionEngine
       module_name: great_expectations.execution_engine
-      connection_string: trino://superset:supersetsuperset@trino-coordinator-default:8443/lakehouse?verify=false
+      connection_string: trino://data-import:data-importdata-import@48.209.58.51:32585/lakehouse?verify=false
     data_connectors:
       default_runtime_data_connector_name:
         class_name: RuntimeDataConnector
