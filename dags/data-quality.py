@@ -22,7 +22,7 @@ with DAG(
         dag_id="example_great_expectations_dag",
         start_date=datetime(2021, 12, 15),
         catchup=False,
-        schedule_interval=None,
+        schedule_interval='@hourly',
 ) as dag:
     ge_data_context_root_dir_with_checkpoint_name_pass = GreatExpectationsOperator(
         task_id="ge_data_context_root_dir_with_checkpoint_name_pass",
